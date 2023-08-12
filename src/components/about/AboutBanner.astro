@@ -1,0 +1,82 @@
+<section class="container-md">
+  <div class="about-banner">
+    <div class="about-banner-image"></div>
+    <div class="about-banner-info">
+      <h1>About Us</h1>
+      <p>
+        Founded in 2010, we are a creative agency that produces lasting results
+        for our clients. We've partnered with many startups, corporations, and
+        nonprofits alike to craft designs that make real impact. We're always
+        looking forward to creating brands, products, and digital experiences
+        that connect with our clients' audiences.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  // Remove the default padding for section, just for mobile here
+  @media (max-width: 767px) {
+    section {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  .about-banner {
+    display: flex;
+    flex-direction: column;
+
+    @include md {
+      border-radius: $border-radius;
+      overflow: hidden;
+    }
+
+    @include lg {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .about-banner-info {
+    background-color: $peach;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+    color: $white;
+    padding-inline: 2rem;
+    padding-block: 4rem;
+
+    background-image: url("/assets/about/mobile/bg-pattern-hero-about-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include md {
+      padding-inline: 4rem;
+    }
+
+    @include lg {
+      text-align: left;
+    }
+  }
+
+  .about-banner-image {
+    height: 320px;
+    background-image: url("/assets/about/mobile/image-about-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-shrink: 0;
+
+    @include md {
+      background-image: url("/assets/about/tablet/image-about-hero.jpg");
+    }
+
+    @include lg {
+      height: 480px;
+      width: 480px;
+      background-image: url("/assets/about/desktop/image-about-hero.jpg");
+    }
+  }
+</style>

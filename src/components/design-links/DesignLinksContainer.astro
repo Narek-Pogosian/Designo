@@ -1,0 +1,19 @@
+<!-- Takes in 2 design links -->
+<section class="container">
+  <slot />
+</section>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include lg {
+      flex-direction: row;
+    }
+  }
+</style>

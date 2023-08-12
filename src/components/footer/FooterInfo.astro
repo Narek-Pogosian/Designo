@@ -1,0 +1,77 @@
+<div class="footer-info">
+  <div>
+    <b>Designo Central Office</b>
+    <p>3886 Wellington Street</p>
+    <p>Toronto, Ontario M9C 3J5</p>
+  </div>
+  <div>
+    <b>Contact Us (Central Office)</b>
+    <p>P : +1 253-863-8967</p>
+    <p>M : contact@designo.co</p>
+  </div>
+  <div class="social-links">
+    <button
+      ><img
+        src="/assets/shared/desktop/icon-facebook.svg"
+        alt="facebook"
+      /></button
+    >
+    <button
+      ><img
+        src="/assets/shared/desktop/icon-youtube.svg"
+        alt="youtube"
+      /></button
+    >
+    <button
+      ><img
+        src="/assets/shared/desktop/icon-twitter.svg"
+        alt="twitter"
+      /></button
+    >
+    <button
+      ><img
+        src="/assets/shared/desktop/icon-pinterest.svg"
+        alt="pinterest"
+      /></button
+    >
+    <button
+      ><img
+        src="/assets/shared/desktop/icon-instagram.svg"
+        alt="instagram"
+      /></button
+    >
+  </div>
+</div>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  .footer-info {
+    color: #8e8e8f;
+    font-weight: 500;
+    padding-block: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+</style>

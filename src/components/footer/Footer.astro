@@ -1,0 +1,64 @@
+---
+import FooterInfo from "./FooterInfo.astro";
+import FooterNav from "./FooterNav.astro";
+import LetsTalk from "./LetsTalk.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<footer class={currentPath === "/contact" ? "hidden" : ""}>
+  <div class="container">
+    <LetsTalk />
+  </div>
+  <div>
+    <div class="container">
+      <FooterNav />
+      <FooterInfo />
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  footer {
+    & > div:first-of-type {
+      height: 190px; // Half of LetsTalk height
+      display: flex;
+      justify-content: center;
+
+      &.hidden {
+        display: none;
+      }
+
+      @include md {
+        height: 230px;
+      }
+    }
+
+    & > div:last-of-type {
+      background-color: $black;
+      padding-top: 230px;
+      padding-bottom: 40px;
+
+      @include md {
+        padding-top: 140px;
+      }
+
+      @include lg {
+        padding-top: 90px;
+      }
+    }
+  }
+
+  // When we are on contact page
+  footer.hidden {
+    & > div:first-of-type {
+      display: none;
+    }
+
+    & > :last-of-type {
+      padding-top: 20px;
+    }
+  }
+</style>

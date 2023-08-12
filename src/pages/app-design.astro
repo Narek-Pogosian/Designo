@@ -1,0 +1,44 @@
+---
+import AppBanner from "@components/design-banners/AppBanner.astro";
+import DesignLinksContainer from "@components/design-links/DesignLinksContainer.astro";
+import GraphicsLink from "@components/design-links/GraphicsLink.astro";
+import WebLink from "@components/design-links/WebLink.astro";
+import Card from "@components/design-list/Card.astro";
+import CardsList from "@components/design-list/CardsList.astro";
+import Layout from "src/Layout.astro";
+---
+
+<Layout title="Designo Agency | App Design">
+  <AppBanner />
+  <CardsList>
+    <Card
+      title="Airfilter"
+      description="Solving the problem of poor indoor air quality by filtering the air"
+      img="/assets/app-design/desktop/image-airfilter.jpg"
+    />
+    <Card
+      title="Eyecam"
+      description="Product that lets you edit your favorite photos and videos at any time"
+      img="/assets/app-design/desktop/image-eyecam.jpg"
+    />
+    <Card
+      title="Faceit"
+      description="Get to meet your favorite internet superstar with the faceit app"
+      img="/assets/app-design/desktop/image-faceit.jpg"
+    />
+    <Card
+      title="Todo"
+      description="A todo app that features cloud sync with light and dark mode"
+      img="/assets/app-design/desktop/image-todo.jpg"
+    />
+    <Card
+      title="Loopstudios"
+      description="A VR experience app made for Loopstudios"
+      img="/assets/app-design/desktop/image-loopstudios.jpg"
+    />
+  </CardsList>
+  <DesignLinksContainer>
+    <WebLink />
+    <GraphicsLink />
+  </DesignLinksContainer>
+</Layout>

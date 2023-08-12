@@ -1,0 +1,60 @@
+---
+import ButtonLink from "@components/shared/ButtonLink.astro";
+---
+
+<section class="container">
+  <div class="location-card">
+    <div class="location-card-image">
+      <img src="/assets/shared/desktop/illustration-canada.svg" alt="Canada" />
+    </div>
+    <h3>Canada</h3>
+    <ButtonLink href="/locations" theme="peach">See Location</ButtonLink>
+  </div>
+  <div class="location-card">
+    <div class="location-card-image">
+      <img
+        src="/assets/shared/desktop/illustration-australia.svg"
+        alt="Canada"
+      />
+    </div>
+    <h3>Australia</h3>
+    <ButtonLink href="/locations" theme="peach">See Location</ButtonLink>
+  </div>
+  <div class="location-card">
+    <div class="location-card-image">
+      <img
+        src="/assets/shared/desktop/illustration-united-kingdom.svg"
+        alt="Canada"
+      />
+    </div>
+    <h3>United Kingdom</h3>
+    <ButtonLink href="/locations" theme="peach">See Location</ButtonLink>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+
+    @include lg {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  .location-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    &-image {
+      background-image: url("/assets/shared/desktop/bg-pattern-small-circle.svg");
+    }
+  }
+</style>

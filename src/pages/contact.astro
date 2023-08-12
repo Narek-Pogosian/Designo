@@ -1,0 +1,199 @@
+---
+import LocationList from "@components/shared/LocationList.astro";
+import Layout from "src/Layout.astro";
+---
+
+<Layout title="Designo Agency | Contact">
+  <section class="container-md">
+    <div class="contact-banner">
+      <div class="contact-text">
+        <h1>Contact Us</h1>
+        <p>
+          Ready to take it to the next level? Let’s talk about your project or
+          idea and find out how we can help your business grow. If you are
+          looking for unique digital experiences that’s relatable to your users,
+          drop us a line.
+        </p>
+      </div>
+      <form id="contact-form">
+        <div class="form-control">
+          <input type="text" name="name" placeholder="Name" />
+          <span class="error"
+            >Can't be empty <img
+              src="/assets/contact/desktop/icon-error.svg"
+              alt=""
+            /></span
+          >
+        </div>
+        <div class="form-control">
+          <input type="text" name="email" placeholder="Email Address" />
+          <span class="error"
+            >Can't be empty <img
+              src="/assets/contact/desktop/icon-error.svg"
+              alt=""
+            /></span
+          >
+        </div>
+        <div class="form-control">
+          <input type="text" name="phone" placeholder="Phone" />
+          <span class="error"
+            >Can't be empty <img
+              src="/assets/contact/desktop/icon-error.svg"
+              alt=""
+            /></span
+          >
+        </div>
+        <div class="form-control">
+          <textarea name="message" rows="6" placeholder="Your Message"
+          ></textarea>
+          <span class="error"
+            >Can't be empty <img
+              src="/assets/contact/desktop/icon-error.svg"
+              alt=""
+            /></span
+          >
+        </div>
+        <div class="form-button"><button type="submit">Submit</button></div>
+      </form>
+    </div>
+  </section>
+  <LocationList />
+</Layout>
+
+<script>
+  const contactForm: HTMLFormElement = document.querySelector("#contact-form")!;
+  contactForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll("input")!;
+    const textarea = document.querySelector("textarea")!;
+
+    inputs.forEach((input) => {
+      if (!input.value.trim()) {
+        input.setAttribute("aria-invalid", "true");
+      } else {
+        input.removeAttribute("aria-invalid");
+      }
+    });
+
+    if (!textarea?.value.trim()) {
+      textarea.setAttribute("aria-invalid", "true");
+    } else {
+      textarea.removeAttribute("aria-invalid");
+    }
+  });
+</script>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  .contact-banner {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-block: 4rem;
+    padding-inline: 2rem;
+    background-color: $peach;
+
+    @include md {
+      padding-inline: 4rem;
+      border-radius: $border-radius;
+    }
+
+    @include lg {
+      flex-direction: row;
+      padding-inline: 6rem;
+      gap: 6rem;
+
+      & > * {
+        flex: 1;
+      }
+    }
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .form-control {
+    position: relative;
+  }
+
+  .error {
+    font-style: italic;
+    display: none;
+    color: $white;
+  }
+
+  .form-button {
+    display: flex;
+    justify-content: center;
+
+    @include md {
+      justify-content: end;
+    }
+  }
+
+  input,
+  textarea {
+    border: 0;
+    padding: 0.5rem;
+    background-color: transparent;
+    border-bottom: 1px solid $light-gray;
+    outline: none;
+    color: $white;
+    position: relative;
+    width: 100%;
+
+    &::placeholder {
+      color: $light-gray;
+    }
+
+    &:focus {
+      border-bottom: 3px solid $white;
+    }
+
+    &[aria-invalid] + .error {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      position: absolute;
+      font-size: 12px;
+      top: 7px;
+      right: 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  form button {
+    @include button;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .contact-text {
+    text-align: center;
+    color: $white;
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+    @include md {
+      text-align: left;
+    }
+
+    @include lg {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+</style>

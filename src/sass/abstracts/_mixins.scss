@@ -1,0 +1,127 @@
+@use "./variables" as *;
+@use "./colors" as *;
+
+@mixin sm {
+  @media (min-width: $sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $xl) {
+    @content;
+  }
+}
+
+@mixin design-card {
+  width: 330px;
+  height: 250px;
+  border-radius: $border-radius;
+  color: $white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(104, 104, 104);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include md {
+    height: 200px;
+    width: 100%;
+  }
+
+  @include lg {
+    height: 310px;
+    transition: scale 200ms;
+
+    &:hover {
+      scale: 1.03;
+    }
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  span {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    &::after {
+      content: "\003E";
+      color: $peach;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@mixin design-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 320px;
+
+  background-color: $peach;
+  background-position: right;
+  background-repeat: no-repeat;
+
+  @include md {
+    border-radius: $border-radius;
+    height: 252px;
+  }
+
+  @include lg {
+    background-position: center;
+  }
+
+  .banner-content {
+    max-width: 350px;
+    text-align: center;
+    color: $white;
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@mixin button($bg: $white, $color: $black) {
+  background-color: $bg;
+  color: $color;
+  display: flex;
+  border: 0;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  width: 9.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 3.5rem;
+  border-radius: $border-radius;
+  font-weight: 500;
+  transition: background-color 300ms, color 300ms;
+
+  &:hover {
+    background-color: $light-peach;
+    color: $white;
+  }
+}

@@ -1,0 +1,184 @@
+---
+import Layout from "src/Layout.astro";
+---
+
+<Layout title="Designo Agency | Locations">
+  <section class="container-md">
+    <div class="location-canada location-container">
+      <div class="location-image"></div>
+      <div class="location-info">
+        <h2>Canada</h2>
+        <div>
+          <div>
+            <b>Designo Central Office</b>
+            <p>3886 Wellington Street</p>
+            <p>Toronto, Ontario M9C 3J5</p>
+          </div>
+          <div>
+            <b>Contact</b>
+            <p>P : +1 253-863-8967</p>
+            <p>M : contact@designo.co</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location-australia location-container">
+      <div class="location-image"></div>
+      <div class="location-info">
+        <h2>Australia</h2>
+        <div>
+          <div>
+            <b>Designo AU Office</b>
+            <p>19 Balonne Street</p>
+            <p>New South Wales 2443</p>
+          </div>
+          <div>
+            <b>Contact</b>
+            <p>P : (02) 6720 9092</p>
+            <p>M : contact@designo.au</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location-uk location-container">
+      <div class="location-image"></div>
+      <div class="location-info">
+        <h2>United Kingdom</h2>
+        <div>
+          <div>
+            <b>Designo UK Office</b>
+            <p>13 Colorado Way</p>
+            <p>Rhyd-y-fro SA8 9GA</p>
+          </div>
+          <div>
+            <b>Contact</b>
+            <p>P : 078 3115 1400</p>
+            <p>M : contact@designo.uk</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  $height: 320px;
+
+  .location-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+    @include md {
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    @include lg {
+      margin-bottom: 2rem;
+    }
+
+    &.location-canada,
+    &.location-uk {
+      @include lg {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &.location-australia {
+      @include lg {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: $card-peach;
+    height: $height;
+    text-align: center;
+
+    @include md {
+      text-align: left;
+      align-items: start;
+      padding-inline: 4rem;
+      border-radius: $border-radius;
+    }
+
+    @include lg {
+      flex: 1;
+    }
+
+    h2 {
+      color: $peach;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include md {
+        flex-direction: row;
+        gap: 4rem;
+      }
+    }
+  }
+
+  .location-image {
+    height: $height;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include md {
+      border-radius: $border-radius;
+      overflow: hidden;
+    }
+
+    @include lg {
+      width: $height;
+    }
+  }
+
+  .location-canada .location-image {
+    background-image: url("/assets/locations/desktop/image-map-canada.png");
+
+    @include md {
+      background-image: url("/assets/locations/tablet/image-map-canada.png");
+    }
+
+    @include lg {
+      background-image: url("/assets/locations/desktop/image-map-canada.png");
+    }
+  }
+
+  .location-australia .location-image {
+    background-image: url("/assets/locations/desktop/image-map-australia.png");
+
+    @include md {
+      background-image: url("/assets/locations/tablet/image-map-australia.png");
+    }
+
+    @include lg {
+      background-image: url("/assets/locations/desktop/image-map-australia.png");
+    }
+  }
+
+  .location-uk .location-image {
+    background-image: url("/assets/locations/desktop/image-map-united-kingdom.png");
+
+    @include md {
+      background-image: url("/assets/locations/tablet/image-map-united-kingdom.png");
+    }
+
+    @include lg {
+      background-image: url("/assets/locations/desktop/image-map-united-kingdom.png");
+    }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import GraphicsBanner from "@components/design-banners/GraphicsBanner.astro";
+import AppLink from "@components/design-links/AppLink.astro";
+import DesignLinksContainer from "@components/design-links/DesignLinksContainer.astro";
+import WebLink from "@components/design-links/WebLink.astro";
+import Card from "@components/design-list/Card.astro";
+import CardsList from "@components/design-list/CardsList.astro";
+import Layout from "src/Layout.astro";
+---
+
+<Layout title="Designo Agency | Graphics Design">
+  <GraphicsBanner />
+  <CardsList>
+    <Card
+      title="Tim Brown"
+      description="A book cover designed for Tim Brown’s new release, ‘Change’"
+      img="/assets/graphic-design/desktop/image-change.jpg"
+    />
+    <Card
+      title="Boxed water"
+      description="A simple packaging concept made for Boxed Water"
+      img="/assets/graphic-design/desktop/image-boxed-water.jpg"
+    />
+    <Card
+      title="Science!"
+      description="A poster made in collaboration with the Federal Art Project"
+      img="/assets/graphic-design/desktop/image-science.jpg"
+    />
+  </CardsList>
+  <DesignLinksContainer>
+    <AppLink />
+    <WebLink />
+  </DesignLinksContainer>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Logo from "../shared/Logo.astro";
+import NavLink from "../shared/NavLink.astro";
+import MobileMenu from "./MobileMenu.astro";
+---
+
+<header>
+  <div class="header-content container">
+    <Logo />
+    <nav>
+      <NavLink href="/about" color="black">Our Company</NavLink>
+      <NavLink href="/locations" color="black">Locations</NavLink>
+      <NavLink href="/contact" color="black">Contact</NavLink>
+    </nav>
+    <MobileMenu />
+  </div>
+</header>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 96px;
+
+    @include md {
+      height: 155px;
+    }
+  }
+
+  nav {
+    display: none;
+
+    @include md {
+      width: 370px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+</style>

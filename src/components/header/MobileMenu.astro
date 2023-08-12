@@ -1,0 +1,73 @@
+---
+import NavLink from "../shared/NavLink.astro";
+---
+
+<div class="mobile-menu-wrapper">
+  <nav id="primary-navigation" role="navigation">
+    <button
+      class="menu-btn"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      ><img src="/assets/shared/mobile/icon-hamburger.svg" alt="Menu" /></button
+    >
+    <ul class="nav-list">
+      <NavLink href="/about" size="md">Our Company</NavLink>
+      <NavLink href="/locations" size="md">Locations</NavLink>
+      <NavLink href="/contact" size="md">Contact</NavLink>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  const primaryNav = document.querySelector("#primary-navigation ul");
+  const menuBtn = document.querySelector(".menu-btn");
+
+  menuBtn?.addEventListener("click", () => {
+    // attribute gets updated after click, so if false then expanded becomes true
+    const expanded = menuBtn.getAttribute("aria-expanded") === "false";
+
+    if (expanded) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "initial";
+    }
+
+    primaryNav?.classList.toggle("active");
+    menuBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+  });
+</script>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  .mobile-menu-wrapper {
+    z-index: 99;
+    @include md {
+      display: none;
+    }
+  }
+
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $black;
+    padding-inline: 24px;
+    padding-block: 2.5rem;
+
+    &.active {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  .menu-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0.25rem;
+    cursor: pointer;
+  }
+</style>

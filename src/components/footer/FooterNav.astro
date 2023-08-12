@@ -1,0 +1,46 @@
+---
+import Logo from "@components/shared/Logo.astro";
+import NavLink from "@components/shared/NavLink.astro";
+---
+
+<nav>
+  <Logo theme="light" />
+  <ul>
+    <NavLink href="/about">Our Company</NavLink>
+    <NavLink href="/locations">Locations</NavLink>
+    <NavLink href="/contact">Contact</NavLink>
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    text-align: center;
+    padding-block: 2rem;
+    border-bottom: 1px solid $dark-gray;
+
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      @include md {
+        width: 370px;
+
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+</style>

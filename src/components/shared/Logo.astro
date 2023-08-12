@@ -1,0 +1,23 @@
+---
+export interface Props {
+  theme?: "light" | "dark";
+}
+
+const { theme = "dark" } = Astro.props;
+---
+
+<a href="/" class="logo-link">
+  {
+    theme === "dark" ? (
+      <img src="/assets/shared/desktop/logo-dark.png" alt="Designo Logo" />
+    ) : (
+      <img src="/assets/shared/desktop/logo-light.png" alt="Designo Logo" />
+    )
+  }
+</a>
+
+<style>
+  img {
+    height: 27px;
+  }
+</style>

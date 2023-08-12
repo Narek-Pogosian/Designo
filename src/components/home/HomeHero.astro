@@ -1,0 +1,95 @@
+---
+import ButtonLink from "@components/shared/ButtonLink.astro";
+---
+
+<section class="container-md">
+  <div class="banner">
+    <div class="banner-text">
+      <h1>Award-winning custom designs and digital branding solutions</h1>
+      <p>
+        With over 10 years in the industry, we are experienced in creating fully
+        responsive websites, app design, and engaging brand experiences. Find
+        out more about our services.
+      </p>
+      <div class="link-wrapper">
+        <ButtonLink href="/about" theme="light">Learn More</ButtonLink>
+      </div>
+    </div>
+    <div class="image-wrapper">
+      <img src="/assets/home/desktop/image-hero-phone1.png" alt="" />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  .banner {
+    background-color: $peach;
+    background-image: url("/assets/home/desktop/bg-pattern-hero-home.svg");
+    background-repeat: no-repeat;
+    background-position: top 50% right -300px;
+    padding-top: 5rem;
+    padding-inline: 1.5rem;
+
+    overflow: hidden;
+    height: 840px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include md {
+      border-radius: $border-radius;
+      background-position: top 50% right -100px;
+      padding-inline: 4.5rem;
+    }
+
+    @include lg {
+      flex-direction: row;
+      align-items: center;
+      gap: 5rem;
+
+      padding-top: 0;
+      background-position: top right;
+      height: 640px;
+    }
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+
+    @include lg {
+      margin-top: 10rem;
+    }
+  }
+
+  .link-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include lg {
+      justify-content: start;
+    }
+  }
+
+  .banner-text {
+    color: white;
+    text-align: center;
+    text-wrap: balance;
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    @include lg {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+<a href="/app-design">
+  <h2>App Design</h2>
+  <span>View Projects</span>
+</a>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  a {
+    @include design-card();
+    background-image: url("/assets/home/mobile/image-app-design.jpg");
+
+    @include md {
+      background-image: url("/assets/home/tablet/image-app-design.jpg");
+    }
+
+    @include lg {
+      background-image: url("/assets/home/desktop/image-app-design.jpg");
+    }
+  }
+</style>
