@@ -1,0 +1,51 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"input"> {
+  type?: "text" | "number" | "email" | "password" | "search";
+}
+
+const { type = "text", ...rest } = Astro.props;
+---
+
+<div class="input-wrapper">
+  <input type={type} class="input" {...rest} />
+</div>
+
+<style lang="scss">
+  @use "@sass/abstracts" as *;
+
+  .input-wrapper {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      scale: 0 1;
+      background-color: $white;
+      transition: scale 300ms;
+    }
+
+    &:focus-within:after {
+      scale: 1 1;
+    }
+  }
+
+  .input {
+    padding: 0.5rem;
+    color: $white;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+
+    &::placeholder {
+      color: $light-gray;
+    }
+  }
+</style>

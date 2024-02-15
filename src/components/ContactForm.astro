@@ -1,0 +1,92 @@
+---
+import Button from "./shared/Button.astro";
+import Input from "./shared/Input.astro";
+import Textarea from "./shared/Textarea.astro";
+---
+
+<form id="contact-form" autocomplete="off">
+  <Input type="text" name="name" placeholder="Name" />
+  <Input type="text" name="email" placeholder="Email Address" />
+  <Input type="text" name="phone" placeholder="Phone" />
+  <Textarea name="message" rows="6" placeholder="Your Message" />
+  <div class="form-button-container">
+    <Button variant="white" type="submit">Submit</Button>
+  </div>
+</form>
+
+<script>
+  const contactForm = document.querySelector("#contact-form");
+  contactForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll("input");
+    const textarea = document.querySelector("textarea")!;
+
+    inputs.forEach((input) => {
+      if (!input.value.trim()) {
+        input.setAttribute("aria-invalid", "true");
+        addErrorMessage(input);
+      } else {
+        input.removeAttribute("aria-invalid");
+        removeErrorMessage(input);
+      }
+    });
+
+    if (!textarea.value.trim()) {
+      textarea.setAttribute("aria-invalid", "true");
+      addErrorMessage(textarea);
+    } else {
+      textarea.removeAttribute("aria-invalid");
+    }
+  });
+
+  function addErrorMessage(input: HTMLInputElement | HTMLTextAreaElement) {
+    if (input.parentElement?.querySelector(".input-error")) return;
+
+    const error = document.createElement("span");
+    error.classList.add("input-error");
+    error.textContent = "Can't be empty";
+
+    const img = document.createElement("img");
+    img.src = "/assets/contact/desktop/icon-error.svg";
+    img.alt = "";
+
+    error.appendChild(img);
+    input.parentElement?.appendChild(error);
+  }
+
+  function removeErrorMessage(input: HTMLInputElement | HTMLTextAreaElement) {
+    const error = input.parentElement?.querySelector(".input-error");
+    error?.remove();
+  }
+</script>
+
+<style lang="scss" is:global>
+  @use "@sass/abstracts" as *;
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .input-error {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: absolute;
+    font-size: 12px;
+    top: 7px;
+    color: white;
+    right: 0;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .form-button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
