@@ -1,0 +1,18 @@
+---
+import { type VariantProps } from "class-variance-authority";
+import type { HTMLAttributes } from "astro/types";
+import { button } from "./Button.astro";
+import clsx from "clsx";
+
+export interface Props
+  extends HTMLAttributes<"a">,
+    VariantProps<typeof button> {}
+
+const { variant = "peach", size = "md", ...rest } = Astro.props;
+
+// Styling comes from Button.astro
+---
+
+<a class={clsx(button({ variant, size }), rest.class)} {...rest}>
+  <slot />
+</a>

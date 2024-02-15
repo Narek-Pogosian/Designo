@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
 
   footer {
     & > div:first-of-type {
-      height: 190px; // Half of LetsTalk height
+      height: calc($talk-banner-height / 2);
       display: flex;
       justify-content: center;
 

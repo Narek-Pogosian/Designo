@@ -1,0 +1,75 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import type { HTMLAttributes } from "astro/types";
+import clsx from "clsx";
+
+export const button = cva("btn", {
+  variants: {
+    variant: {
+      white: "btn-white",
+      peach: "btn-peach",
+    },
+
+    size: {
+      md: "btn-md",
+    },
+  },
+
+  compoundVariants: [
+    {
+      variant: "peach",
+      size: "md",
+    },
+  ],
+});
+
+export interface Props
+  extends HTMLAttributes<"button">,
+    VariantProps<typeof button> {}
+
+const { variant = "peach", size = "md", ...rest } = Astro.props;
+---
+
+<button class={clsx(button({ variant, size }), rest.class)} {...rest}>
+  <slot /></button
+>
+
+<style lang="scss" is:global>
+  @use "@sass/abstracts" as *;
+
+  .btn {
+    display: flex;
+    border: 0;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 9.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 3.5rem;
+    border-radius: $border-radius;
+    font-weight: 500;
+    transition:
+      background-color 300ms,
+      color 300ms;
+  }
+
+  .btn-white {
+    background-color: $white;
+    color: $black;
+
+    &:hover {
+      background-color: $light-peach;
+      color: $white;
+    }
+  }
+
+  .btn-peach {
+    background-color: $peach;
+    color: $white;
+
+    &:hover {
+      background-color: $light-peach;
+    }
+  }
+</style>

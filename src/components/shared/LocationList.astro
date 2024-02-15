@@ -1,5 +1,5 @@
 ---
-import ButtonLink from "@components/shared/ButtonLink.astro";
+import Link from "./Link.astro";
 
 const locations = [
   {
@@ -21,15 +21,19 @@ const locations = [
 ---
 
 <section class="container">
-  {locations.map((location) => (
-    <div class="location-card">
-      <div class="location-card__image">
-        <img src={location.image} alt={location.title} />
+  {
+    locations.map((location) => (
+      <div class="location-card">
+        <div class="location-card__image">
+          <img src={location.image} alt={location.title} />
+        </div>
+        <h3>{location.title}</h3>
+        <Link href={location.href} variant="peach">
+          See Location
+        </Link>
       </div>
-      <h3>{location.title}</h3>
-      <ButtonLink href={location.href} theme="peach">See Location</ButtonLink>
-    </div>
-  ))}
+    ))
+  }
 </section>
 
 <style lang="scss">

@@ -103,25 +103,3 @@
     }
   }
 }
-
-@mixin button($bg: $white, $color: $black) {
-  background-color: $bg;
-  color: $color;
-  display: flex;
-  border: 0;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  width: 9.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  height: 3.5rem;
-  border-radius: $border-radius;
-  font-weight: 500;
-  transition: background-color 300ms, color 300ms;
-
-  &:hover {
-    background-color: $light-peach;
-    color: $white;
-  }
-}

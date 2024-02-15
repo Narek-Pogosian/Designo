@@ -1,5 +1,6 @@
 ---
 import LocationList from "@components/shared/LocationList.astro";
+import Button from "@components/shared/Button.astro";
 import Layout from "src/Layout.astro";
 ---
 
@@ -9,9 +10,9 @@ import Layout from "src/Layout.astro";
       <div class="contact-text">
         <h1>Contact Us</h1>
         <p>
-          Ready to take it to the next level? Let’s talk about your project or
+          Ready to take it to the next level? Let's talk about your project or
           idea and find out how we can help your business grow. If you are
-          looking for unique digital experiences that’s relatable to your users,
+          looking for unique digital experiences that's relatable to your users,
           drop us a line.
         </p>
       </div>
@@ -53,7 +54,9 @@ import Layout from "src/Layout.astro";
             /></span
           >
         </div>
-        <div class="form-button"><button type="submit">Submit</button></div>
+        <div class="form-button">
+          <Button variant="white" type="submit">Submit</Button>
+        </div>
       </form>
     </div>
   </section>
@@ -168,10 +171,6 @@ import Layout from "src/Layout.astro";
         height: 20px;
       }
     }
-  }
-
-  form button {
-    @include button;
   }
 
   textarea {

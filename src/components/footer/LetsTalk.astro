@@ -1,5 +1,5 @@
 ---
-import ButtonLink from "@components/shared/ButtonLink.astro";
+import Link from "@components/shared/Link.astro";
 ---
 
 <div class="card">
@@ -10,7 +10,7 @@ import ButtonLink from "@components/shared/ButtonLink.astro";
       expertise can help your business grow.
     </p>
   </div>
-  <ButtonLink href="/contact" theme="light">Get in touch</ButtonLink>
+  <Link href="/contact" variant="white">Get in touch</Link>
 </div>
 
 <style lang="scss">
@@ -20,7 +20,7 @@ import ButtonLink from "@components/shared/ButtonLink.astro";
     z-index: 10;
     position: relative;
     width: 100%;
-    height: 379px;
+    height: $talk-banner-height;
     border-radius: $border-radius;
     background-color: $peach;
     padding-inline: 1rem;
