@@ -1,35 +1,35 @@
 ---
 import ButtonLink from "@components/shared/ButtonLink.astro";
+
+const locations = [
+  {
+    image: "/assets/shared/desktop/illustration-canada.svg",
+    title: "Canada",
+    href: "/locations",
+  },
+  {
+    image: "/assets/shared/desktop/illustration-australia.svg",
+    title: "Australia",
+    href: "/locations",
+  },
+  {
+    image: "/assets/shared/desktop/illustration-united-kingdom.svg",
+    title: "United Kingdom",
+    href: "/locations",
+  },
+];
 ---
 
 <section class="container">
-  <div class="location-card">
-    <div class="location-card-image">
-      <img src="/assets/shared/desktop/illustration-canada.svg" alt="Canada" />
+  {locations.map((location) => (
+    <div class="location-card">
+      <div class="location-card__image">
+        <img src={location.image} alt={location.title} />
+      </div>
+      <h3>{location.title}</h3>
+      <ButtonLink href={location.href} theme="peach">See Location</ButtonLink>
     </div>
-    <h3>Canada</h3>
-    <ButtonLink href="/locations" theme="peach">See Location</ButtonLink>
-  </div>
-  <div class="location-card">
-    <div class="location-card-image">
-      <img
-        src="/assets/shared/desktop/illustration-australia.svg"
-        alt="Canada"
-      />
-    </div>
-    <h3>Australia</h3>
-    <ButtonLink href="/locations" theme="peach">See Location</ButtonLink>
-  </div>
-  <div class="location-card">
-    <div class="location-card-image">
-      <img
-        src="/assets/shared/desktop/illustration-united-kingdom.svg"
-        alt="Canada"
-      />
-    </div>
-    <h3>United Kingdom</h3>
-    <ButtonLink href="/locations" theme="peach">See Location</ButtonLink>
-  </div>
+  ))}
 </section>
 
 <style lang="scss">
@@ -53,7 +53,7 @@ import ButtonLink from "@components/shared/ButtonLink.astro";
     align-items: center;
     gap: 2rem;
 
-    &-image {
+    &__image {
       background-image: url("/assets/shared/desktop/bg-pattern-small-circle.svg");
     }
   }

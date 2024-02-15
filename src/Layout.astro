@@ -1,7 +1,9 @@
 ---
+import "@fontsource-variable/jost"
 import "./sass/style.scss";
 import Header from "@components/header/Header.astro";
 import Footer from "@components/footer/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -18,12 +20,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
   <body>

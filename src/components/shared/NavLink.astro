@@ -1,18 +1,32 @@
 ---
-export interface Props {
-  href: string;
-  color?: "white" | "black";
-  size?: "sm" | "md";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { HTMLAttributes } from "astro/types";
+import clsx from "clsx";
+
+const navLink = cva("nav-link", {
+  variants: {
+    theme: {
+      white: "white",
+      black: "black",
+    },
+    size: {
+      sm: "sm",
+      md: "md",
+    },
+  },
+  
+  compoundVariants: [{theme: "white", size: "md"}]
+});
+
+export interface Props extends HTMLAttributes<"a">, VariantProps<typeof navLink> {
 }
 
-const { href, color = "white", size = "sm" } = Astro.props;
+const { theme = "white", size = "sm", ...rest } = Astro.props;
 ---
 
 <a
-  href={href}
-  class={`${color === "white" ? "white" : "black"} ${
-    size === "sm" ? "sm" : "md"
-  }`}
+  class={clsx(navLink({ theme, size }), theme, size)}
+  {...rest}
 >
   <slot />
 </a>
@@ -24,10 +38,7 @@ const { href, color = "white", size = "sm" } = Astro.props;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
-  }
-
-  a.sm {
-    font-size: 14px;
+    cursor: pointer;
 
     &::after {
       content: "";
@@ -45,6 +56,10 @@ const { href, color = "white", size = "sm" } = Astro.props;
     &:hover::after {
       scale: 1 1;
     }
+  }
+
+  a.sm {
+    font-size: 14px;
   }
 
   a.md {
