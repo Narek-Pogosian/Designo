@@ -30,10 +30,15 @@ import MobileMenu from "./MobileMenu.astro";
   header {
     display: flex;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
     height: $header-height-mobile;
 
     @include md {
+      position: relative;
       height: $header-height;
     }
   }
@@ -56,6 +61,7 @@ import MobileMenu from "./MobileMenu.astro";
   .header-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 </style>
