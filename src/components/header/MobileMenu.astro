@@ -3,12 +3,13 @@ import NavLink from "../shared/NavLink.astro";
 ---
 
 <div class="mobile-menu-wrapper">
-  <nav id="primary-navigation" role="navigation">
+  <nav id="primary-navigation" class="primary-navigation">
     <button
       class="menu-btn"
       aria-controls="primary-navigation"
       aria-expanded="false"
-      ><img src="/assets/shared/mobile/icon-hamburger.svg" alt="Menu" /></button
+      ><span class="sr-only">Toggle menu</span>
+      <img src="/assets/shared/mobile/icon-hamburger.svg" alt="Menu" /></button
     >
     <ul class="nav-list">
       <li>
@@ -22,20 +23,34 @@ import NavLink from "../shared/NavLink.astro";
       </li>
     </ul>
   </nav>
+  <div class="backdrop"></div>
 </div>
 
 <script>
-  const primaryNav = document.querySelector("#primary-navigation ul");
-  const menuBtn = document.querySelector(".menu-btn");
+  const primaryNav = document.querySelector("#primary-navigation");
+  const menuBtn = document.querySelector(".menu-btn")!;
+  const backdrop = document.querySelector(".backdrop")!;
+
+  function clickOutside(e: any) {
+    e.stopPropagation();
+
+    if (!primaryNav?.contains(e.target) && !menuBtn?.contains(e.target)) {
+      primaryNav?.classList.remove("active");
+      menuBtn?.setAttribute("aria-expanded", "false");
+      document.body.style.overflowY = "initial";
+      document.body.removeEventListener("click", clickOutside);
+    }
+  }
 
   menuBtn?.addEventListener("click", () => {
-    // attribute gets updated after click, so if false then expanded becomes true
     const expanded = menuBtn.getAttribute("aria-expanded") === "false";
 
     if (expanded) {
       document.body.style.overflowY = "hidden";
+      document.body.addEventListener("click", clickOutside);
     } else {
       document.body.style.overflowY = "initial";
+      document.body.removeEventListener("click", clickOutside);
     }
 
     primaryNav?.classList.toggle("active");
@@ -48,25 +63,50 @@ import NavLink from "../shared/NavLink.astro";
 
   .mobile-menu-wrapper {
     z-index: 99;
+
     @include md {
       display: none;
     }
   }
 
-  .nav-list {
+  .backdrop {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: $header-height-mobile;
     left: 0;
-    background-color: $black;
-    padding-inline: 24px;
-    padding-block: 2.5rem;
+    width: 100%;
+    height: calc(100% - $header-height-mobile);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
 
-    &.active {
+  .primary-navigation {
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: $black;
+      padding-inline: 24px;
+      padding-block: 2.5rem;
+      list-style: none;
       width: 100%;
-      display: flex;
       flex-direction: column;
       gap: 2rem;
+    }
+
+    &.active {
+      ul {
+        display: flex;
+      }
+      + .backdrop {
+        display: block;
+      }
+    }
+  }
+
+  .nav-list {
+    &.active {
     }
   }
 

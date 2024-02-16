@@ -42,6 +42,10 @@ import Textarea from "./shared/Textarea.astro";
     if (contactForm.querySelectorAll("[aria-invalid]").length === 0) {
       contactForm.reset();
       alert("Form submitted successfully");
+    } else {
+      (
+        contactForm.querySelectorAll("[aria-invalid]")[0] as HTMLInputElement
+      ).focus();
     }
   });
 
