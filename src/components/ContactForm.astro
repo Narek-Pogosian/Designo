@@ -6,7 +6,7 @@ import Textarea from "./shared/Textarea.astro";
 
 <form id="contact-form" autocomplete="off">
   <Input type="text" name="name" placeholder="Name" />
-  <Input type="text" name="email" placeholder="Email Address" />
+  <Input type="email" name="email" placeholder="Email Address" />
   <Input type="text" name="phone" placeholder="Phone" />
   <Textarea name="message" rows="6" placeholder="Your Message" />
   <div class="form-button-container">
@@ -15,7 +15,7 @@ import Textarea from "./shared/Textarea.astro";
 </form>
 
 <script>
-  const contactForm = document.querySelector("#contact-form");
+  const contactForm: HTMLFormElement = document.querySelector("#contact-form")!;
   contactForm?.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -37,6 +37,11 @@ import Textarea from "./shared/Textarea.astro";
       addErrorMessage(textarea);
     } else {
       textarea.removeAttribute("aria-invalid");
+    }
+
+    if (contactForm.querySelectorAll("[aria-invalid]").length === 0) {
+      contactForm.reset();
+      alert("Form submitted successfully");
     }
   });
 

@@ -8,9 +8,17 @@ import MobileMenu from "./MobileMenu.astro";
   <div class="header-content container">
     <Logo />
     <nav>
-      <NavLink href="/about" theme="black">Our Company</NavLink>
-      <NavLink href="/locations" theme="black">Locations</NavLink>
-      <NavLink href="/contact" theme="black">Contact</NavLink>
+      <ul>
+        <li>
+          <NavLink href="/about" theme="black">Our Company</NavLink>
+        </li>
+        <li>
+          <NavLink href="/locations" theme="black">Locations</NavLink>
+        </li>
+        <li>
+          <NavLink href="/contact" theme="black">Contact</NavLink>
+        </li>
+      </ul>
     </nav>
     <MobileMenu />
   </div>
@@ -34,9 +42,14 @@ import MobileMenu from "./MobileMenu.astro";
     display: none;
 
     @include md {
-      width: 370px;
-      display: flex;
-      justify-content: space-between;
+      display: block;
+
+      ul {
+        list-style: none;
+        width: 370px;
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 
