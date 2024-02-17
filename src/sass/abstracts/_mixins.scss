@@ -25,6 +25,14 @@
   }
 }
 
+@mixin circle-background($min-width: 200px) {
+  background-image: url("/assets/shared/desktop/bg-pattern-small-circle.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: fit-content;
+  min-width: $min-width;
+}
+
 @mixin design-card {
   width: 330px;
   height: 250px;
@@ -68,38 +76,6 @@
       content: "\003E";
       color: $peach;
       margin-left: 1rem;
-    }
-  }
-}
-
-@mixin design-banner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 320px;
-
-  background-color: $peach;
-  background-position: right;
-  background-repeat: no-repeat;
-
-  @include md {
-    border-radius: $border-radius;
-    height: 252px;
-  }
-
-  @include lg {
-    background-position: center;
-  }
-
-  .banner-content {
-    max-width: 350px;
-    text-align: center;
-    color: $white;
-
-    h1 {
-      margin-bottom: 2rem;
     }
   }
 }

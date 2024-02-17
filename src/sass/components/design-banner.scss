@@ -1,0 +1,33 @@
+@use "../abstracts/" as *;
+
+.design-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 320px;
+
+  background-color: $peach;
+  background-position: right;
+  background-repeat: no-repeat;
+
+  @include md {
+    border-radius: $border-radius;
+    height: 252px;
+  }
+
+  @include lg {
+    background-position: center;
+  }
+
+  .banner-content {
+    max-width: 350px;
+    text-align: center;
+    color: $white;
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+  }
+}

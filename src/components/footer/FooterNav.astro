@@ -6,9 +6,15 @@ import NavLink from "@components/shared/NavLink.astro";
 <nav>
   <Logo theme="light" />
   <ul>
-    <NavLink href="/about">Our Company</NavLink>
-    <NavLink href="/locations">Locations</NavLink>
-    <NavLink href="/contact">Contact</NavLink>
+    <li>
+      <NavLink href="/about">Our Company</NavLink>
+    </li>
+    <li>
+      <NavLink href="/locations">Locations</NavLink>
+    </li>
+    <li>
+      <NavLink href="/contact">Contact</NavLink>
+    </li>
   </ul>
 </nav>
 
@@ -35,6 +41,7 @@ import NavLink from "@components/shared/NavLink.astro";
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    list-style: none;
 
     @include md {
       width: 370px;

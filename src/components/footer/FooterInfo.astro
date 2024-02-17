@@ -1,3 +1,33 @@
+---
+const socialLinks = [
+  {
+    name: "facebook",
+    icon: "/assets/shared/desktop/icon-facebook.svg",
+    href: "#",
+  },
+  {
+    name: "youtube",
+    icon: "/assets/shared/desktop/icon-youtube.svg",
+    href: "#",
+  },
+  {
+    name: "twitter",
+    icon: "/assets/shared/desktop/icon-twitter.svg",
+    href: "#",
+  },
+  {
+    name: "pinterest",
+    icon: "/assets/shared/desktop/icon-pinterest.svg",
+    href: "#",
+  },
+  {
+    name: "instagram",
+    icon: "/assets/shared/desktop/icon-instagram.svg",
+    href: "#",
+  },
+];
+---
+
 <div class="footer-info">
   <div>
     <b>Designo Central Office</b>
@@ -10,38 +40,17 @@
     <p>M : contact@designo.co</p>
   </div>
 
-  <div class="social-links">
-    <a href="#"
-      ><span class="sr-only">Link to facebook</span><img
-        src="/assets/shared/desktop/icon-facebook.svg"
-        alt="facebook"
-      /></a
-    >
-    <a href="#"
-      ><span class="sr-only">Link to youtube</span><img
-        src="/assets/shared/desktop/icon-youtube.svg"
-        alt="youtube"
-      /></a
-    >
-    <a href="#"
-      ><span class="sr-only">Link to twitter</span><img
-        src="/assets/shared/desktop/icon-twitter.svg"
-        alt="twitter"
-      /></a
-    >
-    <a href="#"
-      ><span class="sr-only">Link to pinterest</span><img
-        src="/assets/shared/desktop/icon-pinterest.svg"
-        alt="pinterest"
-      /></a
-    >
-    <a href="#"
-      ><span class="sr-only">Link to instagram</span><img
-        src="/assets/shared/desktop/icon-instagram.svg"
-        alt="instagram"
-      /></a
-    >
-  </div>
+  <ul class="social-links">
+    {
+      socialLinks.map((link) => (
+        <li>
+          <a href={link.href}>
+            <img src={link.icon} alt={link.name} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>
 
 <style lang="scss">
@@ -68,11 +77,6 @@
   .social-links {
     display: flex;
     gap: 1rem;
-
-    button {
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
-    }
+    list-style: none;
   }
 </style>
