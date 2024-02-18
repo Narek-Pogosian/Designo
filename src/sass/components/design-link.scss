@@ -1,0 +1,48 @@
+@use "../abstracts/" as *;
+
+.design-link {
+  width: 330px;
+  height: 250px;
+  border-radius: $border-radius;
+  color: $white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(104, 104, 104);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include md {
+    height: 200px;
+    width: 100%;
+  }
+
+  @include lg {
+    height: 310px;
+    transition: scale 200ms;
+
+    &:hover {
+      scale: 1.03;
+    }
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  span {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    &::after {
+      content: "\003E";
+      color: $peach;
+      margin-left: 1rem;
+    }
+  }
+}
