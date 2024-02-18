@@ -14,20 +14,18 @@ const navLink = cva("nav-link", {
       md: "md",
     },
   },
-  
-  compoundVariants: [{theme: "white", size: "md"}]
+
+  compoundVariants: [{ theme: "white", size: "md" }],
 });
 
-export interface Props extends HTMLAttributes<"a">, VariantProps<typeof navLink> {
-}
+export interface Props
+  extends HTMLAttributes<"a">,
+    VariantProps<typeof navLink> {}
 
-const { theme = "white", size = "sm", ...rest } = Astro.props;
+const { theme = "white", size = "md", ...rest } = Astro.props;
 ---
 
-<a
-  class={clsx(navLink({ theme, size }), theme, size)}
-  {...rest}
->
+<a class={clsx(navLink({ theme, size }), theme, size)} {...rest}>
   <slot />
 </a>
 
@@ -59,11 +57,11 @@ const { theme = "white", size = "sm", ...rest } = Astro.props;
   }
 
   a.sm {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   a.md {
-    font-size: 24px;
+    font-size: 14px;
   }
 
   a.white {

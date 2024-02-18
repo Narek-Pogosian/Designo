@@ -24,3 +24,9 @@
     padding: 10px;
   }
 }
+
+@for $i from 1 through 12 {
+  .p-#{$i} {
+    padding: $i * 0.25rem;
+  }
+}
