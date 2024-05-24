@@ -4,26 +4,31 @@ const socialLinks = [
     name: "facebook",
     icon: "/assets/shared/desktop/icon-facebook.svg",
     href: "#",
+    description: "Link to our Facebook",
   },
   {
     name: "youtube",
     icon: "/assets/shared/desktop/icon-youtube.svg",
     href: "#",
+    description: "Link to our youtube",
   },
   {
     name: "twitter",
     icon: "/assets/shared/desktop/icon-twitter.svg",
     href: "#",
+    description: "Link to our twitter page",
   },
   {
     name: "pinterest",
     icon: "/assets/shared/desktop/icon-pinterest.svg",
     href: "#",
+    description: "Link to our pinterest page",
   },
   {
     name: "instagram",
     icon: "/assets/shared/desktop/icon-instagram.svg",
     href: "#",
+    description: "Link to our instagram",
   },
 ];
 ---
@@ -45,7 +50,13 @@ const socialLinks = [
       socialLinks.map((link) => (
         <li>
           <a href={link.href}>
-            <img src={link.icon} alt={link.name} />
+            <span class="sr-only">{link.description}</span>
+            <img
+              src={link.icon}
+              alt={link.name}
+              loading="lazy"
+              aria-hidden="true"
+            />
           </a>
         </li>
       ))
