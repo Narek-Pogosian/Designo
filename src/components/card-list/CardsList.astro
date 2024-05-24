@@ -1,18 +1,18 @@
-<section class="container list">
-  <slot />
+<section class="container">
+  <ul class="list">
+    <slot />
+  </ul>
 </section>
 
 <style lang="scss">
   @use "@sass/abstracts" as *;
 
   .list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 2rem;
-    align-items: center;
+    justify-content: center;
 
     @include xl {
-      display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 3.5rem;
     }
