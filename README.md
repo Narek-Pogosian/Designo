@@ -13,10 +13,6 @@ You can view the full details of the challenge [here](https://www.frontendmentor
 - **Astro:** Utilized for its powerful static site generation and component-based architecture, making routing and component reuse seamless.
 - **SCSS:** Implemented for styling, with a mobile-first approach to ensure responsiveness across all devices.
 
-## 📜 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
 ## 🙌 Acknowledgments
 
 A big thank you to [Frontend Mentor](https://www.frontendmentor.io) for providing this challenge and to the community for feedback and support.
